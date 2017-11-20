@@ -65,27 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var obj = __webpack_require__(1)
-
-console.log(obj)
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var a = __webpack_require__(2).a
-module.exports = {
-  a: a,
-  b: 'bbbbb'
-}
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
-module.exports.a = 'aaasdsda'
+
 
 /***/ })
 /******/ ]);
