@@ -1,5 +1,3 @@
-import { clearTimeout } from 'timers';
-
 require('less/note.less')
 
 var Toast = require('./toast.js').Toast
@@ -110,7 +108,32 @@ Note.prototype = {
     })
   },
 
-  add: function(){
-    
+  add: function(msg){
+    var me = this
+    $.post('/api/notes/add', {note: msg}).done(function(ret){
+      if(ret.status === 0){
+        Toast('add success')
+      }else{
+        self.$note.remove()
+        Event.fire('waterfall')
+        Toast(ret.errorMsg)
+      }
+    })
+  },
+
+  delete: function(){
+    var me = this
+    $.post('/api/notes/delete', {id: this.id}).done(function(ret){
+      if(ret.status === 0){
+        Toast('delete success')
+        me.$note.remove()
+        Event.fire('waterfall')
+      }else{
+        Toast(ret.errorMsg)
+      }
+    })
   }
 }
+
+
+module.exports.Note = Note
