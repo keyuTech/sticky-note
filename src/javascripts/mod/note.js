@@ -80,8 +80,8 @@ Note.prototype = {
 
     $noteHead.on('mousedown', function(e){
       var evtX = e.pageX - $note.offset().left,
-          evtY = e.pageY - $note.offset().top,
-          $note.addClass('draggable').data('evtPos', {x:evtX, y:evtY})
+          evtY = e.pageY - $note.offset().top
+      $note.addClass('draggable').data('evtPos', {x:evtX, y:evtY})
     }).on('mouseup', function(){
       $note.removeClass('draggable').removeData('pos')
     })
